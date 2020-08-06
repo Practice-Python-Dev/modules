@@ -7,30 +7,30 @@
 
 # This file 'app.py' draws on the other files (modules) in the repository
 
-#------------------------------
-# CUSTOM MODULE (BY ME)
-#------------------------------
+#------ CUSTOM MODULE (BY ME) -----
 
 import custom
 
-#------ PLAY SILO -----
-
+#------------------------------
+# PLAY SILO GAME 
+#------------------------------
 
 # Ask the user if they want to play silo
-play = input("Do you want to play Silo? ")
+    # Pass 'play' parameter to our function
+    # Function runs, Passes back the result
+    # Print it - Syntax = module.function(parameter)
 
-# Pass 'play' parameter to our function, Function runs, Passes back the result, Then we print
-# Syntax = module.function(parameter)
+play = input("Want to Play Silo? ")
 print(custom.play_silo(play))
 
-#------ CONVERT KILOMETERS TO MILES -----
-
-
-########## BUGGGGGGSSSS ##############
-# Call the function
-custom.km_to_miles()
-
-
 #------------------------------
-# RANDOM MODULE
+# KILOMETERS TO MILES
 #------------------------------
+
+# Ask the user for kilometers to convert
+    # Pass 'kilometers', run the function
+    # Pass back results, print ...
+
+# kilometers = input("Convert Kilometers to Miles: ")
+
+
