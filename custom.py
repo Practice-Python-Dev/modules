@@ -43,13 +43,15 @@ def play_silo(play):
                 # break
             elif dice1 == dice2 and dice2 == dice3:
                 print("You Got Trips:")
+                outcomes.sort()
                 print(outcomes, "\n----------")
                 # break
             elif dice1 == dice2 or dice3 == dice1 or dice3 == dice2:
                 print("You're score:")
+                outcomes.sort()
                 print(outcomes, "\n----------")
                 # break
-        print()
+        return "Program Ended"
     # return dice1, dice2, dice3
     # return print(dice1, dice2, dice3)
         # Note, could expand upon this to include 1, 2, 3 instant loss and 4, 5, 6, instant win logic
