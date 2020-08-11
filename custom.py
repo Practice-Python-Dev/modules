@@ -1,11 +1,8 @@
 #------------------------------
-# MY CUSTOM MODULE
+# MY CUSTOM MODULES
 #------------------------------
 
-# Creating my own custom module full of useful things ...
-# Storing things here keeps code clean (within the app)
-
-# Import random module for 'play_silo' function
+# Import random module for 'play_silo'
 import random
 
 #------------------------------
@@ -15,49 +12,55 @@ import random
 # app.py has a variable 'play' that will be passed here
 # We will then pass the outcome back to app.py
 
-def play_silo(play):
-    # Save outcomes in a list to manipulate later ...
-    simulate = 0
-    if play == "yes" or play == "Yes":
-        while simulate <= 100:
-            dice1 = random.randint(1, 6)
-            dice2 = random.randint(1, 6)
-            dice3 = random.randint(1, 6)
-            outcomes = [dice1, dice2, dice3]
-            # Instant win
-            instant_win = [4, 5, 6]
-            compare_win  = all(elem in outcomes for elem in instant_win)
-            # Instant loss
-            instant_loss = [1, 2, 3]
-            compare_loss = all(elem in outcomes for elem in instant_loss)
-            simulate += 1
-            if compare_win: 
-                print("You got Silo!!!")
-                outcomes.sort()
-                print(outcomes, "\n----------")
-                # break
-            elif compare_loss:
-                print("You crapped out:")
-                outcomes.sort()
-                print(outcomes, "\n----------")
-                # break
-            elif dice1 == dice2 and dice2 == dice3:
-                print("You Got Trips:")
-                outcomes.sort()
-                print(outcomes, "\n----------")
-                # break
-            elif dice1 == dice2 or dice3 == dice1 or dice3 == dice2:
-                print("You're score:")
-                outcomes.sort()
-                print(outcomes, "\n----------")
-                # break
-        return "Program Ended"
-    # return dice1, dice2, dice3
-    # return print(dice1, dice2, dice3)
-        # Note, could expand upon this to include 1, 2, 3 instant loss and 4, 5, 6, instant win logic
+def play_silo():
+    # Define local variables
+    play = input("Do you want to Play Silo? ")
+    instant_win = [4, 5, 6]
+    instant_loss = [1, 2, 3]
+
+    # Roll if 'play' = "yes"
+    while play == "yes" or play == "Yes" or play == "y" or play == "Y":
+
+        # Roll the dice
+        dice1 = random.randint(1, 6)
+        dice2 = random.randint(1, 6)
+        dice3 = random.randint(1, 6)
+        outcome = [dice1, dice2, dice3]
+
+        # Compare the 'outcome' to the 'instant win/loss' criteria
+        compare_win  = all(elem in outcome for elem in instant_win)
+        compare_loss = all(elem in outcome for elem in instant_loss)
+        
+        # Break at the end ...
+        if compare_win:
+            print("You got Silo!!!")
+            outcome.sort()
+            print(outcome)
+            break
+        # If 'compare_loss' = 'True'
+        elif compare_loss:
+            print("You crapped out:")
+            outcome.sort()
+            print(outcome)
+            break
+        # If trips ...
+        elif dice1 == dice2 and dice2 == dice3:
+            print("You Got Trips:")
+            print(outcome)
+            break
+        # If doubles ...
+        elif dice1 == dice2 or dice3 == dice1 or dice3 == dice2:
+            outcome.sort()
+            print("Your score is:", outcome)
+            break
+        # If no score keep rolling ...
+        else:
+            print("You rolled", outcome)
+            play = input("Keep playing?")
+
 
 #------------------------------
-# OTHER USEFUL THINGS ...
+# OTHER USEFUL FUNCTIONS ...
 #------------------------------
 
 # ----- KM CONVERTOR -----
@@ -82,4 +85,3 @@ family = ["James", "John", "Jamie", "Haru", "Brendan", "Jim"]
 # Give it a fileneme, It will tell you the extension
 def get_file_extension(filename):
     return filename[filename.index(".") + 1:]
-

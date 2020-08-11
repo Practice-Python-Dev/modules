@@ -3,9 +3,7 @@
 #------------------------------
 
 # Importing functionality from external python files is a core concept
-# Write something once in a module, then import it into any files it is useful
-
-# This file 'app.py' draws on the other files (modules) in the repository
+# Write something useful once in a module, then import it into a file when you need it
 
 #------ CUSTOM MODULE (BY ME) -----
 
@@ -15,13 +13,9 @@ import custom
 # PLAY SILO GAME 
 #------------------------------
 
-# Ask the user if they want to play silo
-    # Pass 'play' parameter to our function
-    # Function runs, Passes back the result
-    # Print it - Syntax = module.function(parameter)
-
-play = input("Want to Play Silo? ")
-print(custom.play_silo(play))
+# Call the 'play_silo' function from 'custom.py'
+# This function asks if you want to play silo, then rolls dice accordingly ...
+custom.play_silo()
 
 #------------------------------
 # KILOMETERS TO MILES
@@ -32,5 +26,3 @@ print(custom.play_silo(play))
     # Pass back results, print ...
 
 # kilometers = input("Convert Kilometers to Miles: ")
-
-
